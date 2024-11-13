@@ -1,43 +1,38 @@
 package com.BTL.QuanLySanPham.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.util.Date;
 
-@Component
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
-    private int prodId;
-    private String prodName;
-    private int price;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //giá trị của trường đó sẽ được tự động tạo ra bởi cơ sở dữ liệu khi thêm một bản ghi mới.
+    private int id;
+    private String name;
+    private String description;
+    private String brand;
+    private BigDecimal price;
+    private String category;
 
-    public Product() {}
-    public int getProdId() {
-        return prodId;
-    }
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date releaseDate;
+    private boolean  productAvailable;
+    private int stockQuantity;
 
-    public void setProdId(int prodId) {
-        this.prodId = prodId;
-    }
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
 
-    public String getProdName() {
-        return prodName;
-    }
-
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public Product(int prodId, String prodName, int price) {
-        this.prodId = prodId;
-        this.prodName = prodName;
-        this.price = price;
-    }
 }

@@ -1,18 +1,53 @@
 package com.BTL.QuanLySanPham.services;
 
+//import com.BTL.QuanLySanPham.model.Product;
 import com.BTL.QuanLySanPham.model.Product;
+import com.BTL.QuanLySanPham.repo.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.ImageFilter;
+import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Service
 public class ProductServices {
 
-    List<Product> products = Arrays.asList(
-            new Product(101,"Iphone", 500000),
-            new Product(102,"Ipad", 500000));
-    public List<Product> getProducts() {
-        return products;
+    @Autowired
+    private ProductRepo repo;
+    public List<Product> getAllProducts() {
+
+        return repo.findAll();
     }
+
+
+
+    public Product getProductsById(int id) {
+        return repo.findById(id).orElse(null);
+    }
+
+
+    public Product addProduct(Product product, MultipartFile imageFile) throws IOException {
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType(imageFile.getContentType());
+        product.setImageData(imageFile.getBytes());
+        return repo.save(product);
+
+    }
+
+    public Product updateProduct(int id, Product product, MultipartFile imageFile) throws IOException {
+       product.setImageData(imageFile.getBytes());
+       product.setImageName(imageFile.getOriginalFilename());
+       product.setImageType(imageFile.getContentType());
+        return repo.save(product);
+    }
+
+    public void deleteProduct(int id) {
+        repo.deleteById(id);
+    }
+
+
 }
