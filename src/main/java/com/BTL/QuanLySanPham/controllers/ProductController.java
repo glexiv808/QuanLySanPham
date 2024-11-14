@@ -88,13 +88,12 @@ public class ProductController {
             return new ResponseEntity<>("Cant Deleted", HttpStatus.NOT_FOUND);
 
     }
+
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword){
+        List<Product> products = service.searchProducts(keyword);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }
 
-
-
-//
-//    @DeleteMapping("/products/{prodId}")
-//    public void deleteProduct(@PathVariable int prodId){
-//        service.deleteProduct(prodId);
-//    }
 
