@@ -1,24 +1,32 @@
 INSERT INTO product (name, description, brand, price, category, release_date, product_available, stock_quantity) VALUES
-                                                                                                                     ('Smartphone Galaxy S21', 'High-end smartphone with 128GB storage and 8GB RAM', 'Samsung', 799.99, 'Electronics', '2023-01-15', true, 50),
-                                                                                                                     ('4K LED TV 55 Inch', 'Ultra HD 4K television with HDR support and smart features', 'LG', 599.99, 'Electronics', '2023-05-12', true, 40),
-                                                                                                                     ('3D Printer Mini', 'Compact 3D printer suitable for beginners with easy setup', 'Creality', 499.99, 'Electronics', '2023-06-07', true, 10),
-                                                                                                                     ('Wireless Earbuds 2', 'Noise-cancelling wireless earbuds with up to 24 hours battery life', 'Sony', 159.99, 'Electronics', '2023-01-25', true, 60),
-                                                                                                                     ('Smart Door Lock', 'Keyless smart lock with fingerprint sensor and app control', 'August', 189.99, 'Electronics', '2023-01-20', true, 35),
-                                                                                                                     ('Gaming Keyboard RGB', 'Mechanical keyboard with customizable RGB lighting', 'Corsair', 99.99, 'Electronics', '2023-01-30', true, 90),
-                                                                                                                     ('Smart Light Bulb', 'Energy-efficient smart bulb with adjustable brightness and colors', 'Philips Hue', 24.99, 'Electronics', '2023-02-16', true, 200),
-                                                                                                                     ('Bluetooth Speaker X3', 'Portable Bluetooth speaker with deep bass and water resistance', 'JBL', 89.99, 'Electronics', '2023-03-03', true, 75),
-                                                                                                                     ('Mirrorless Camera X10', 'High-resolution mirrorless camera with interchangeable lenses', 'Canon', 1199.99, 'Electronics', '2023-07-04', true, 12),
-                                                                                                                     ('Smartwatch Series 6', 'Fitness-focused smartwatch with heart rate monitor and GPS', 'Apple', 399.99, 'Electronics', '2023-06-10', true, 50),
-                                                                                                                     ('Action Camera 4K', 'Compact action camera with waterproof case and 4K recording', 'GoPro', 349.99, 'Electronics', '2023-03-21', true, 25),
-                                                                                                                     ('Robot Vacuum Pro', 'Smart robot vacuum with app control and mapping technology', 'iRobot', 399.99, 'Electronics', '2023-06-01', true, 15),
-                                                                                                                     ('Noise Cancelling Headphones', 'Wireless over-ear headphones with active noise cancellation', 'Bose', 279.99, 'Electronics', '2023-02-25', true, 60),
-                                                                                                                     ('Electric Toothbrush Smart', 'Rechargeable electric toothbrush with multiple brushing modes', 'Oral-B', 49.99, 'Electronics', '2023-04-14', true, 80),
-                                                                                                                     ('Fitness Tracker Fit', 'Lightweight fitness tracker with heart rate monitor', 'Fitbit', 99.99, 'Electronics', '2023-02-03', true, 70),
-                                                                                                                     ('Smart Thermostat V2', 'Smart thermostat with WiFi connectivity and energy-saving modes', 'Nest', 129.99, 'Electronics', '2023-01-27', true, 50),
-                                                                                                                     ('Portable Laptop Stand', 'Ergonomic laptop stand with adjustable height', 'Nexstand', 29.99, 'Electronics', '2023-03-09', true, 60),
-                                                                                                                     ('Electric Kettle Pro', '1.7L electric kettle with temperature control and auto shut-off', 'Breville', 49.99, 'Electronics', '2023-04-02', true, 40),
-                                                                                                                     ('Pressure Washer 1800', 'Powerful pressure washer with adjustable nozzles', 'Karcher', 229.99, 'Electronics', '2023-05-01', true, 25),
-                                                                                                                     ('Digital Air Fryer XL', 'Large capacity air fryer with digital display and presets', 'Ninja', 149.99, 'Electronics', '2023-04-15', true, 30),
-                                                                                                                     ('Memory Foam Pillow', 'Memory foam pillow with cooling gel for extra comfort', 'Tempur-Pedic', 59.99, 'Electronics', '2023-02-19', true, 100),
-                                                                                                                     ('Stainless Steel Watch', 'Elegant stainless steel watch with water resistance and chronograph', 'Citizen', 199.99, 'Electronics', '2023-05-05', true, 25),
-                                                                                                                     ('Laptop XPS 13', 'Compact and powerful laptop with Intel i7 processor and 512GB SSD', 'Dell', 1299.99, 'Electronics', '2023-04-10', true, 15);
+-- Laptop
+('Laptop XPS 15', 'Powerful laptop with Intel i9 processor and 1TB SSD', 'Dell', 1999.99, 'Laptop', '2023-03-15', true, 20),
+('Laptop MacBook Air M2', 'Thin and light laptop with Apple M2 chip', 'Apple', 1199.99, 'Laptop', '2023-05-10', true, 30),
+('Laptop ThinkPad X1 Carbon', 'Lightweight business laptop with Intel i7 processor', 'Lenovo', 1499.99, 'Laptop', '2023-02-25', true, 15),
+('Laptop Aspire 5', 'Affordable laptop with AMD Ryzen 5 processor and 256GB SSD', 'Acer', 649.99, 'Laptop', '2023-01-20', true, 40),
+('Laptop ROG Zephyrus G14', 'Gaming laptop with NVIDIA RTX 3060 GPU and 144Hz display', 'Asus', 1599.99, 'Laptop', '2023-04-12', true, 10),
+('Laptop Surface Laptop 5', 'Portable laptop with touch screen and Windows 11', 'Microsoft', 1399.99, 'Laptop', '2023-06-18', true, 25),
+
+-- Headphone
+('Wireless Headphones WH-1000XM5', 'Noise-cancelling over-ear headphones with 30 hours battery life', 'Sony', 399.99, 'Headphone', '2023-02-15', true, 50),
+('Earbuds Pro 3', 'True wireless earbuds with active noise cancellation', 'Apple', 249.99, 'Headphone', '2023-03-10', true, 100),
+('Gaming Headset G Pro X', 'Professional gaming headset with surround sound and mic', 'Logitech', 129.99, 'Headphone', '2023-04-20', true, 70),
+('Bluetooth Headphones Hesh Evo', 'Over-ear Bluetooth headphones with long battery life', 'Skullcandy', 89.99, 'Headphone', '2023-01-30', true, 80),
+('Noise-Cancelling Headphones Elite 85H', 'Premium noise-cancelling headphones for all-day comfort', 'Jabra', 199.99, 'Headphone', '2023-05-05', true, 60),
+('Studio Headphones M50X', 'High-quality studio headphones with exceptional sound clarity', 'Audio-Technica', 149.99, 'Headphone', '2023-06-22', true, 40),
+
+-- Mobile
+('Smartphone iPhone 14', 'High-performance smartphone with advanced camera system', 'Apple', 999.99, 'Mobile', '2023-02-10', true, 70),
+('Smartphone Galaxy Z Flip 5', 'Foldable smartphone with dynamic AMOLED display', 'Samsung', 1199.99, 'Mobile', '2023-05-15', true, 40),
+('Smartphone Pixel 7 Pro', 'Google smartphone with powerful AI capabilities', 'Google', 899.99, 'Mobile', '2023-03-18', true, 50),
+('Smartphone OnePlus 11', 'Fast and smooth smartphone with Hasselblad camera system', 'OnePlus', 799.99, 'Mobile', '2023-01-05', true, 60),
+('Smartphone Mi 13 Ultra', 'Flagship smartphone with Leica optics and fast charging', 'Xiaomi', 1299.99, 'Mobile', '2023-06-30', true, 30),
+('Smartphone Xperia 1 V', 'Premium smartphone with 4K HDR OLED display', 'Sony', 1199.99, 'Mobile', '2023-04-25', true, 20),
+
+-- Electronics
+('Smart TV 65 Inch OLED', 'High-end 4K OLED TV with Dolby Vision and smart features', 'LG', 1999.99, 'Electronics', '2023-01-22', true, 15),
+('Robot Vacuum i7+', 'Self-emptying robot vacuum with smart mapping', 'iRobot', 799.99, 'Electronics', '2023-02-15', true, 25),
+('Portable Bluetooth Speaker', 'Compact Bluetooth speaker with rich bass and 12 hours battery', 'JBL', 129.99, 'Electronics', '2023-04-10', true, 70),
+('Smart Home Hub', 'Central hub for controlling smart home devices', 'Google Nest', 99.99, 'Electronics', '2023-03-05', true, 50),
+('4K Action Camera Hero 11', 'Waterproof action camera with 4K video recording', 'GoPro', 399.99, 'Electronics', '2023-05-18', true, 20),
+('3D Printer Ender 5', 'DIY 3D printer with precision printing capabilities', 'Creality', 649.99, 'Electronics', '2023-06-12', true, 10);
