@@ -93,7 +93,7 @@ const Home = ({ selectedCategory }) => {
               <div
                 className="card mb-3"
                 style={{
-                  width: "280px",
+                  width: "270px",
                   height: "400px",
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   borderRadius: "10px",
