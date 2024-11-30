@@ -1,4 +1,4 @@
-package com.BTL.QuanLySanPham;
+package com.BTL.QuanLySanPham.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
