@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home"
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 // import { json } from "react-router-dom";
 // import { BiSunFill, BiMoon } from "react-icons/bi";
 
@@ -16,6 +17,10 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
   const [noResults, setNoResults] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const [showSearchResults,setShowSearchResults] = useState(false)
+  const location = useLocation(); // Lấy thông tin đường dẫn hiện tại
+
+  const isLoginPage = location.pathname === '/login';
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -51,35 +56,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
     }
   };
 
-  
-  // const handleChange = async (value) => {
-  //   setInput(value);
-  //   if (value.length >= 1) {
-  //     setShowSearchResults(true);
-  //     try {
-  //       let response;
-  //       if (!isNaN(value)) {
-  //         // Input is a number, search by ID
-  //         response = await axios.get(`http://localhost:8080/api/products/search?id=${value}`);
-  //       } else {
-  //         // Input is not a number, search by keyword
-  //         response = await axios.get(`http://localhost:8080/api/products/search?keyword=${value}`);
-  //       }
-
-  //       const results = response.data;
-  //       setSearchResults(results);
-  //       setNoResults(results.length === 0);
-  //       console.log(results);
-  //     } catch (error) {
-  //       console.error("Error searching:", error.response ? error.response.data : error.message);
-  //     }
-  //   } else {
-  //     setShowSearchResults(false);
-  //     setSearchResults([]);
-  //     setNoResults(false);
-  //   }
-  // };
-
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     onSelectCategory(category);
@@ -102,10 +78,10 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
   ];
   return (
     <>
-      <header>
+      <header style={{visibility: isLoginPage ? 'hidden' : 'visible', }}> 
         <nav className="navbar navbar-expand-lg fixed-top">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/home">
               Area13
             </a>
             <button
@@ -153,6 +129,11 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                       </li>
                     ))}
                   </ul>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Đăng xuất
+                  </a>
                 </li>
 
                 <li className="nav-item"></li>

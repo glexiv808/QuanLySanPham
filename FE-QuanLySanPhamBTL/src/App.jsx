@@ -1,11 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import LoginForm from './components/LoginForm';
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import { AppProvider } from "./Context/Context";
 import UpdateProduct from "./components/UpdateProduct";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -35,20 +36,21 @@ function App() {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
-
   return (
     <AppProvider>
       <BrowserRouter>
         <Navbar onSelectCategory={handleCategorySelect}
-         />
+         />     
         <Routes>
           <Route
-            path="/"
+            path="/home"
             element={
               <Home addToCart={addToCart} selectedCategory={selectedCategory}
               />
             }
           />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/add_product" element={<AddProduct />} />
           <Route path="/product" element={<Product  />} />
           <Route path="product/:id" element={<Product  />} />
@@ -58,6 +60,7 @@ function App() {
       </BrowserRouter>
     </AppProvider>
   );
+  
 }
 
 export default App;
