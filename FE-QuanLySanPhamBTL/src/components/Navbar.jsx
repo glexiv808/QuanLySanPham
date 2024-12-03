@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Home from "./Home"
 import axios from "axios";
-import { useLocation } from 'react-router-dom';
-// import { json } from "react-router-dom";
-// import { BiSunFill, BiMoon } from "react-icons/bi";
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const Navbar = ({ onSelectCategory, onSearch }) => {
+  const navigate = useNavigate(); // Điều hướng người dùng
   const getInitialTheme = () => {
     const storedTheme = localStorage.getItem("theme");
     return storedTheme ? storedTheme : "light-theme";
@@ -29,7 +28,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
     try {
       const response = await axios.get("http://localhost:8088/api/products");
       setSearchResults(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -45,7 +43,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
       );
       setSearchResults(response.data);
       setNoResults(response.data.length === 0);
-      console.log(response.data);
     } catch (error) {
       console.error("Error searching:", error);
     }
@@ -65,6 +62,10 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+  const logout = () => {
+    localStorage.removeItem("isAuthenticated"); // Xóa trạng thái đăng nhập
+    navigate("/login"); // Điều hướng về trang Login
+  };   
 
   useEffect(() => {
     document.body.className = theme;
@@ -131,9 +132,9 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">
+                  <button  className="nav-link" onClick={logout}>
                     Đăng xuất
-                  </a>
+                  </button>
                 </li>
 
                 <li className="nav-item"></li>
@@ -146,15 +147,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                 )}
               </button>
               <div className="d-flex align-items-center cart">
-                <a href="/cart" className="nav-link text-dark">
-                  <i
-                    className="bi bi-cart me-2"
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    Giỏ
-                  </i>
-                </a>
-                {/* <form className="d-flex" role="search" onSubmit={handleSearch} id="searchForm"> */}
                 <input
                   className="form-control me-2"
                   type="search"

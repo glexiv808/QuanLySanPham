@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ setIsAuthenticated }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -9,7 +9,8 @@ const LoginForm = ({ onLogin }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (username === 'admin' && password === '123') {
-            console.log('Đăng nhập thành công!');
+            localStorage.setItem('isAuthenticated', 'true');
+            setIsAuthenticated(true); // Cập nhật trạng thái vào App
             navigate('/home');
         } else {
             alert('Tên đăng nhập hoặc mật khẩu không đúng!');
