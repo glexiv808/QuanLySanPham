@@ -64,7 +64,7 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
   };
   const logout = () => {
     localStorage.removeItem("isAuthenticated"); // Xóa trạng thái đăng nhập
-    navigate("/login"); // Điều hướng về trang Login
+    navigate("/login", { replace: true }); // Điều hướng về trang Login
   };   
 
   useEffect(() => {
