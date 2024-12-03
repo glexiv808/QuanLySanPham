@@ -22,7 +22,6 @@ const LoginForm = ({ setIsAuthenticated }) => {
             <h2 style={{ textAlign: 'center', color:'white' }}>Đăng Nhập</h2>
             <form onSubmit={handleSubmit}>
                 <div style={{ marginBottom: '15px' }}>
-                    <label style={{ display: 'block', marginBottom: '5px' }}>Tên đăng nhập:</label>
                     <input
                         type="text"
                         value={username}
@@ -33,7 +32,6 @@ const LoginForm = ({ setIsAuthenticated }) => {
                     />
                 </div>
                 <div style={{ marginBottom: '15px' }}>
-                    <label style={{ display: 'block', marginBottom: '5px' }}>Mật khẩu:</label>
                     <input
                         type="password"
                         value={password}
