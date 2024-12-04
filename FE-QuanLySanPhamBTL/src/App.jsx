@@ -68,11 +68,26 @@ const logout = () => {
               </PrivateRoute>
             }/>
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/add_product" element={<AddProduct />} />
-          <Route path="/product" element={<Product  />} />
-          <Route path="/product/:id" element={<Product  />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/update/:id" element={<UpdateProduct />} />
+          <Route path="/add_product" element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+                <AddProduct />
+            </PrivateRoute> 
+            } />
+          <Route path="/product" element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Product />
+            </PrivateRoute>
+            }/>
+          <Route path="/product/:id" element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Product  />
+            </PrivateRoute>
+            } />
+          <Route path="/product/update/:id" element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <UpdateProduct />
+            </PrivateRoute>
+            } />
         </Routes>
       </BrowserRouter>
     </AppProvider>

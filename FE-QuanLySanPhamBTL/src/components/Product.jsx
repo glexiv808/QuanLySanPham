@@ -45,7 +45,7 @@ const Product = () => {
       console.log("Product deleted successfully");
       alert("Product deleted successfully");
       refreshData();
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -83,9 +83,7 @@ const Product = () => {
               {product.category}
             </span>
             <p className="release-date" style={{ marginBottom: "2rem" }}>
-              
               <h6>Ngày ra mắt : <span> <i> {new Date(product.releaseDate).toLocaleDateString()}</i></span></h6>
-              {/* <i> {new Date(product.releaseDate).toLocaleDateString()}</i> */}
             </p>
             </div>
             
@@ -146,7 +144,7 @@ const Product = () => {
             >
               Sửa
             </button>
-            {/* <UpdateProduct product={product} onUpdate={handleUpdate} /> */}
+
             <button
               className="btn btn-primary"
               type="button"
