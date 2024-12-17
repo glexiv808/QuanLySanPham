@@ -1,2 +1,3 @@
--File chứa phần Fe chạy trên visual studio code 
--File db-img chứa theo đường dẫn src/main/java/com/BTL/QuanLySanPham/database/db-img.sql được dùng để import vào xampp 
+-File chứa phần Fe chạy trên visual studio code <br>
+-File db-img (theo đường dẫn src/main/java/com/BTL/QuanLySanPham/database/db-img.sql) được dùng để import dữ liệu vào xampp <br>
+-Trong báo cáo đã bao gồm Tài liệu SRS + Bảng phân công công việc các thành viên trong nhóm <br>
