@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ setIsAuthenticated }) => {
-    const [username, setUsername] = useState('');
+const LoginForm = ({ setIsAuthenticated }) => { //để cập nhật trạng thái đăng nhập trong component cha
+    const [username, setUsername] = useState(''); // khai báo rỗng để lưu thông tin người dùng
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // điều hướng người dùng sau khi đăng nhập thành công.
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if (username === 'admin' && password === '123') {
-            localStorage.setItem('isAuthenticated', 'true');
+        e.preventDefault(); //Chặn hành vi mặc định của form (tải lại trang).
+        if (username === 'admin' && password === '123') { //check tài khoản
+            localStorage.setItem('isAuthenticated', 'true'); //Lưu trạng thái đăng nhập vào localStorage để duy trì ngay cả khi làm mới trình duyệt.
             setIsAuthenticated(true); // Cập nhật trạng thái vào App
             navigate('/home');
         } else {

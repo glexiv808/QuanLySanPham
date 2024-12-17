@@ -1,7 +1,7 @@
 import axios from "../axios";
 import { useState, useEffect, createContext } from "react";
 
-const AppContext = createContext({
+const AppContext = createContext({ //là context lưu trữ trạng thái toàn cục mặc định
   data: [],
   isError: "",
   cart: [],
@@ -25,15 +25,15 @@ export const AppProvider = ({ children }) => {
 
   const refreshData = async () => {
     try {
-      const response = await axios.get("/products");
-      setData(response.data);
+      const response = await axios.get("/products"); //Gửi yêu cầu GET đến API /products
+      setData(response.data); //Cập nhật data nếu thành công
     } catch (error) {
       setIsError(error.message);
     }
   };
 
   useEffect(() => {
-    refreshData();
+    refreshData(); //Gọi refreshData() một lần khi component được tải lần đầu tiên để lấy dữ liệu sản phẩm.
   }, []);
 
   useEffect(() => {

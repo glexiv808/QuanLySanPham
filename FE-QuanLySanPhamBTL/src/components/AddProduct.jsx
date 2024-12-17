@@ -30,16 +30,16 @@ const AddProduct = () => {
     formData.append("imageFile", image);
     formData.append(
       "product",
-      new Blob([JSON.stringify(product)], { type: "application/json" })
+      new Blob([JSON.stringify(product)], { type: "application/json" }) //để chuyển đổi đối tượng thành chuỗi JSON.
     );
 
     axios
-      .post("http://localhost:8088/api/product", formData, {
+      .post("http://localhost:8088/api/product", formData, { //Gửi yêu cầu POST đến API
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((response) => {
+      .then((response) => { //Nếu gửi thành công, ghi nhật ký phản hồi từ máy chủ và hiển thị thông báo thành công.
         console.log("Product added successfully:", response.data);
         alert("Product added successfully");
       })

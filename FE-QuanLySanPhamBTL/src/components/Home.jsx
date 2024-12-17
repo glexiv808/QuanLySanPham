@@ -9,8 +9,8 @@ const Home = ({ selectedCategory }) => {
   const [products, setProducts] = useState([]);
   const [isDataFetched, setIsDataFetched] = useState(false);
 
-  useEffect(() => {
-    if (!isDataFetched) {
+  useEffect(() => { //Mục đích chính của đoạn mã là tải dữ liệu một lần khi component được hiển thị lần đầu.
+    if (!isDataFetched) { //isDataFetched giúp tránh việc gọi refreshData nhiều lần không cần thiết.
       refreshData();
       setIsDataFetched(true);
     }
@@ -18,15 +18,15 @@ const Home = ({ selectedCategory }) => {
 
   useEffect(() => {
     if (data && data.length > 0) {
-      const fetchImagesAndUpdateProducts = async () => {
-        const updatedProducts = await Promise.all(
-          data.map(async (product) => {
+      const fetchImagesAndUpdateProducts = async () => { // định nghĩa hàm bất đồng bộ
+        const updatedProducts = await Promise.all( //đợi tất cả các yêu cầu hoàn tất trước khi tiếp tục
+          data.map(async (product) => { //Dùng data.map() để lặp qua từng sản phẩm trong danh sách data
             try {
               const response = await axios.get(
                 `http://localhost:8088/api/product/${product.id}/image`,
                 { responseType: "blob" }
               );
-              const imageUrl = URL.createObjectURL(response.data);
+              const imageUrl = URL.createObjectURL(response.data); // tạo URL tạm để có thể được dùng để hiển thị ảnh trong giao diện người dùng
               return { ...product, imageUrl };
             } catch (error) {
               console.error(

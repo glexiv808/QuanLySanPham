@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Navbar = ({ onSelectCategory, onSearch }) => {
   const navigate = useNavigate(); // Điều hướng người dùng
   const getInitialTheme = () => {
-    const storedTheme = localStorage.getItem("theme");
-    return storedTheme ? storedTheme : "light-theme";
+    const storedTheme = localStorage.getItem("theme"); //Lấy chủ đề từ localStorage, nếu không có thì mặc định là "light-theme".
+    return storedTheme ? storedTheme : "light-theme"; //theme lưu chủ đề hiện tại và setTheme để thay đổi chủ đề khi cần.
   };
   const [selectedCategory, setSelectedCategory] = useState("");
   const [theme, setTheme] = useState(getInitialTheme());
@@ -54,8 +54,8 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
   };
 
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    onSelectCategory(category);
+    setSelectedCategory(category);//lưu trữ danh mục hiện tại mà người dùng đã chọn để có thể sử dụng trong giao diện hoặc logic ứng dụng khác
+    onSelectCategory(category); //cho phép component cha nhận biết danh mục mà người dùng đã chọn và cập nhật giao diện
   };
   const toggleTheme = () => {
     const newTheme = theme === "dark-theme" ? "light-theme" : "dark-theme";
