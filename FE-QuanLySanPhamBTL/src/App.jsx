@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import LoginForm from './components/LoginForm';
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
