@@ -21,7 +21,6 @@ export const AppProvider = ({ children }) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    console.log("CART",cart)
   };
 
   const refreshData = async () => {
