@@ -106,7 +106,7 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                     Thêm sản phẩm
                   </a>
                 </li>
-
+                {location.pathname === "/home" && (
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -131,12 +131,13 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                     ))}
                   </ul>
                 </li>
+                )}
                 <li className="nav-item">
                   <button  className="nav-link" onClick={logout}>
                     Đăng xuất
                   </button>
                 </li>
-
+                
                 <li className="nav-item"></li>
               </ul>
               <button className="theme-btn" onClick={() => toggleTheme()}>
